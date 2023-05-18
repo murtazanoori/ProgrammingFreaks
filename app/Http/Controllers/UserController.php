@@ -14,15 +14,15 @@ class UserController extends Controller
     }
 
     public function user_submit(Request $request){
-        $crediantials = [
+        $credentials = [
             'email' => $request->email,
             'password' => $request->password
         ];
 
-        if (Auth::attempt($crediantials)) {
+        if (Auth::attempt($credentials)) {
             return view('Landing.layouts.landing_master');
         } else {
-            dd('else');
+            dd(Auth);
             return view('auth.login');
         }
     }
